@@ -21,7 +21,9 @@ export const LoginScreen = () => {
           name="password"
           className="auth__input"
         />
-        <button type="submit">login</button>
+        <button className="btn btn-primary" type="submit">
+          login
+        </button>
         <hr />
         <div className="auth__social-networks">
           <p>Login with social networks</p>
