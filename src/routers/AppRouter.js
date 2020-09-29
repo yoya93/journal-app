@@ -26,7 +26,7 @@ export const AppRouter = () => {
 
       setChecking(false);
     });
-  }, [dispatch]);
+  }, [dispatch, setChecking, setIsLoggedIn]);
 
   if (checking) {
     return <LinearProgress />;

@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 import { useForm } from "../../hooks/useForm";
 import { startLoginEmailPassword, startGoogleLogin } from "../actions/auth";
-import { useDispatch, useSelector } from "react-redux";
 
 export const LoginScreen = () => {
   const [formValues, handleInputChange] = useForm({
