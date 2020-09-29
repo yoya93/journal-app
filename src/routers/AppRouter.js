@@ -1,10 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import LinearProgress from "@material-ui/core/LinearProgress";
 
@@ -12,6 +7,8 @@ import { JournalScreen } from "../components/journal/JournalScreen";
 import { login } from "../components/actions/auth";
 import { AuthRouter } from "./AuthRouter";
 import { firebase } from "../firebase/firebase-config";
+import { PrivateRoute } from "./PrivateRoute";
+import { PublicRoute } from "./PublicRoute";
 
 export const AppRouter = () => {
   const [checking, setChecking] = useState(true);
@@ -29,7 +26,7 @@ export const AppRouter = () => {
 
       setChecking(false);
     });
-  }, [dispatch, setChecking, setIsLoggedIn]);
+  }, [dispatch]);
 
   if (checking) {
     return <LinearProgress />;
@@ -39,10 +36,18 @@ export const AppRouter = () => {
     <Router>
       <div>
         <Switch>
-          <Route exact path="/" component={JournalScreen} />
+          <PrivateRoute
+            isLoggedIn={isLoggedIn}
+            exact
+            path="/"
+            component={JournalScreen}
+          />
 
-          <Route path="/auth" component={AuthRouter} />
-          <Redirect to="/auth/login" />
+          <PublicRoute
+            isLoggedIn={isLoggedIn}
+            path="/auth"
+            component={AuthRouter}
+          />
         </Switch>
       </div>
     </Router>
