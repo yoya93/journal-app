@@ -16,7 +16,6 @@ export const JournalEntry = ({ id, title, body, imageUrl, date }) => {
   };
 
   const handleActiveNote = () => {
-    console.log("clike");
     dispatch(activeNotes(id, note));
   };
   return (
