@@ -10,10 +10,7 @@ export const JournalScreen = () => {
     <div className="journal__main-content">
       <Sidebar />
 
-      <main>
-        {active ? <NoteScreen /> : <NothingSelected />}
-        <NoteScreen />
-      </main>
+      <main>{active ? <NoteScreen /> : <NothingSelected />}</main>
     </div>
   );
 };
