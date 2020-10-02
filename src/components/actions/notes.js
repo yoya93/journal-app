@@ -47,8 +47,8 @@ export const startSaveNotes = (note) => {
   return async (dispatch, getState) => {
     const { uid } = getState().auth;
 
-    if (!note.url) {
-      delete note.url;
+    if (!note.imageUrl) {
+      delete note.imageUrl;
     }
 
     const noteToFirestore = { ...note };
@@ -97,3 +97,18 @@ export const startUploading = (file) => {
     console.log(fileUrl);
   };
 };
+
+export const startDeleting = (id) => {
+  return async (dispatch, getState) => {
+    const { uid } = getState().auth;
+    await db.doc(`${uid}/journal/notes/${id}`).delete();
+
+    dispatch(deleteNote(id));
+  };
+};
+
+export const deleteNote = (id) => ({
+  type: types.notesDelete,
+
+  payload: id,
+});
