@@ -18,12 +18,20 @@ export const startNewNotes = () => {
 
     dispatch(activeNotes(doc.id, newNote));
 
-    console.log(doc);
+    dispatch(addNewNote(doc.id, newNote));
   };
 };
 
 export const activeNotes = (id, note) => ({
   type: types.notesActive,
+  payload: {
+    id,
+    ...note,
+  },
+});
+
+export const addNewNote = (id, note) => ({
+  type: types.notesAddNew,
   payload: {
     id,
     ...note,
@@ -111,4 +119,8 @@ export const deleteNote = (id) => ({
   type: types.notesDelete,
 
   payload: id,
+});
+
+export const logoutNotes = () => ({
+  type: types.notesLogoutCleaning,
 });
