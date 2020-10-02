@@ -13,6 +13,7 @@ export const JournalEntry = ({ id, title, body, imageUrl, date }) => {
     title,
     body,
     date,
+    imageUrl,
   };
 
   const handleActiveNote = () => {
