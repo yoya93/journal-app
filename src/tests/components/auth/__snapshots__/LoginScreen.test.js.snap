@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Pruebas en <LoginScreen/> debe de render el componente normalmente 1`] = `
+exports[`Pruebas en <LoginScreen/> debe de mostrarse correctamente el componente  1`] = `
 <div
   className="animate__animated animate__fadeIn animate__faster"
 >
