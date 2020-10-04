@@ -12,3 +12,5 @@ Object.defineProperty(window, "scrollTo", {
   value: notScroll,
   writable: true,
 });
+
+// las acciones asincronas no necesitan evaluarse con el dispacher es directamente : Example login ,logout
