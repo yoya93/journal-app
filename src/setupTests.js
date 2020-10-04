@@ -23,3 +23,5 @@ jest.mock("sweetalert2", () => ({
   fire: jest.fn,
   close: jest.fn,
 }));
+
+//cuando le pongo el jest.fn() a algo puedo saber cuando se llamo , con ke argumentos o cuando fue la ultima vez

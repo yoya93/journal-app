@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en <JournalEntry/> debe de mostrarse correctamente el componente  1`] = `
+<div
+  className="journal__entry pointer"
+  onClick={[Function]}
+>
+  <div
+    className="journal__entry-picture"
+    style={
+      Object {
+        "backgroundImage": "url(https://hwudh/hhf.png)",
+        "backgroundSize": "cover",
+      }
+    }
+  />
+  <div
+    className="journal-entry-body"
+  >
+    <p
+      className="journal-entry-title"
+    >
+      test
+    </p>
+    <p
+      className="journal-entry-content"
+    >
+      testing
+    </p>
+  </div>
+  <div
+    className="journal__entry-date-box"
+  >
+    <span
+      className="journal__entry-date-box-span"
+    >
+      Thursday
+    </span>
+    <h4>
+      1st
+    </h4>
+  </div>
+</div>
+`;
