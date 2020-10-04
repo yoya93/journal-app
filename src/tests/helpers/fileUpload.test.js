@@ -25,7 +25,6 @@ describe("Pruebas en  fileUpload", () => {
     const segments = url.split("/");
     const imgId = segments[segments.length - 1].split(".")[0];
     cloudinary.v2.api.delete_resources(imgId, {}, () => {
-      console.log(`Este es el ID: ${imgId}`);
       done();
     });
   });

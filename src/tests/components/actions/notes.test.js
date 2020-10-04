@@ -131,7 +131,6 @@ describe("pruebas en las aciones notes (asincronas)", () => {
     const noteCloud = await db
       .doc(`TESTING/journal/notes/${initState.notes.active.id}`)
       .get();
-    console.log();
 
     expect(noteCloud.data().imageUrl).toBe(
       "https://test-pruebas.com/simulandoRetornoImagen.jpg"
