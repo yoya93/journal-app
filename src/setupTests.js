@@ -14,3 +14,6 @@ Object.defineProperty(window, "scrollTo", {
 });
 
 // las acciones asincronas no necesitan evaluarse con el dispacher es directamente : Example login ,logout
+
+//Los mock no cambian el reducer solo simulan los cambios para poder hacer las test
+//el get State del store no me va a dar el estado del reducer sino el estado del initial state que yo le pase
