@@ -57,7 +57,6 @@ describe("pruebas en las actions de auth", () => {
 
     await store.dispatch(startLoginEmailPassword(email, password));
     const action = store.getActions();
-    console.log(action);
 
     expect(action[2]).toEqual({
       type: types.login,
