@@ -43,10 +43,6 @@ const wrapper = mount(
 );
 
 describe("Pruebas en <RegisterScreen/>", () => {
-  //   beforeEach(() => {
-  //     store = mockStore(initState);
-  //     // jest.clearAllMocks();
-  //   });
   test("debe de mostrarse correctamente el componente ", () => {
     expect(wrapper).toMatchSnapshot();
   });
