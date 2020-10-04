@@ -8,17 +8,38 @@ import {
   startDeleting,
   startLoadingNotes,
   startSaveNotes,
+  startUploading,
 } from "../../../components/actions/notes";
 import { types } from "../../../types/types";
 import { db } from "../../../firebase/firebase-config";
+import { fileUpload } from "../../../helpers/fileUpload";
+
+// con el mock simulo la respuesta de la function fileUpload (es decir ke ya se alojo la img en cloudunary)
+//y despues puedo comprobar si el url ke estoy simulamdo se graba en
+// en la note
+jest.mock("../../../helpers/fileUpload", () => ({
+  fileUpload: jest.fn(() => {
+    // return Promise.resolve(
+    //   "https://test-pruebas.com/simulandoRetornoImagen.jpg"
+    // );
+
+    return "https://test-pruebas.com/simulandoRetornoImagen.jpg";
+  }),
+}));
 
 const middlewares = [thunk];
 
 const mockStore = configureStore(middlewares);
-
 const initState = {
   auth: {
     uid: "TESTING",
+  },
+  notes: {
+    active: {
+      id: "nMptx4590bMtamI0Fl6v",
+      title: "TEST",
+      body: "Test",
+    },
   },
 };
 
@@ -100,13 +121,20 @@ describe("pruebas en las aciones notes (asincronas)", () => {
 
     expect(actions[0].type).toBe(types.notesUpdate);
     expect(note.title).toEqual(noteCloud.data().title);
+  }, 20000);
 
-    // const expected = {
-    //   id: expect.any(String),
-    //   title: expect.any(String),
-    //   body: expect.any(String),
-    //   date: expect.any(Number),
-    // };
-    // expect(actions[0].payload[0]).toMatchObject(expected);
+  test("startUploading debe de subir un file", async () => {
+    const file = new File([], "foto.jpg");
+
+    await store.dispatch(startUploading(file));
+
+    const noteCloud = await db
+      .doc(`TESTING/journal/notes/${initState.notes.active.id}`)
+      .get();
+    console.log();
+
+    expect(noteCloud.data().imageUrl).toBe(
+      "https://test-pruebas.com/simulandoRetornoImagen.jpg"
+    );
   }, 20000);
 });

@@ -5,3 +5,10 @@ import "@testing-library/jest-dom/extend-expect";
 
 expect.addSnapshotSerializer(createSerializer({ mode: "deep" }));
 configure({ adapter: new Adapter() });
+
+const notScroll = () => {};
+
+Object.defineProperty(window, "scrollTo", {
+  value: notScroll,
+  writable: true,
+});

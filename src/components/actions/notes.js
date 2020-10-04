@@ -14,11 +14,15 @@ export const startNewNotes = () => {
       date: new Date().getTime(),
     };
 
-    const doc = await db.collection(`${uid}/journal/notes`).add(newNote);
+    try {
+      const doc = await db.collection(`${uid}/journal/notes`).add(newNote);
 
-    dispatch(activeNotes(doc.id, newNote));
+      dispatch(activeNotes(doc.id, newNote));
 
-    dispatch(addNewNote(doc.id, newNote));
+      dispatch(addNewNote(doc.id, newNote));
+    } catch (error) {
+      console.log(error);
+    }
   };
 };
 
@@ -96,13 +100,9 @@ export const startUploading = (file) => {
 
     activeNotes.imageUrl = fileUrl;
 
-    console.log(activeNotes);
-
     dispatch(startSaveNotes(activeNotes));
 
     Swal.close();
-
-    console.log(fileUrl);
   };
 };
 
