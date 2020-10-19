@@ -5,11 +5,11 @@ Journal App es una aplicacion que lo ayudara a guardar y escribir sobre lo que v
 Capturas de pantalla del proyecto
 
 
-<img src="imgReadme/1.png" alt="Captura de pantalla"/>
+<img src="imgReadme/uno.png" alt="Captura de pantalla"/>
 
-<img src="imgReadme/2.png" alt="Captura de pantalla2"/>
+<img src="imgReadme/dos.png" alt="Captura de pantalla2"/>
 
-<img src="imgReadme/3.png" alt="Captura de pantalla2"/>
+<img src="imgReadme/tres.png" alt="Captura de pantalla2"/>
 
 
 
